@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.example.intentsandnavigation"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.intentsandnavigation"
