@@ -6,49 +6,49 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-    private final String[] localDataSet;
+    private List<String> dataList;
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder.
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-        // Each data item is just a string in this case
-        public TextView textView;
-        public MyViewHolder(View itemView) {
-            super(itemView);
-
-        }
+    public MyAdapter(List<String> dataList) {
+        this.dataList = dataList;
     }
 
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(String[] dataSet) {
-        localDataSet = dataSet;
-    }
-
-    // Create new views (invoked by the layout manager)
     @NonNull
     @Override
-    public MyAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Create a new view, which defines the UI of the list item
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // This is where you inflate the individual item layout (activity_list_item_layout.xml)
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_item_layout, parent, false);
+                .inflate(R.layout.activity_list_item_layout, parent, false);
         return new MyViewHolder(view);
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        // Get element from your dataset at this position and replace the
-        // contents of the view with that element
-        holder.textView.setText(localDataSet[position]);
+        // Bind the data to the views within each list item
+        String item = dataList.get(position);
+        holder.titleTextView.setText(item);
+        // Assuming your item layout has another TextView with ID 'item_description'
+        // holder.descriptionTextView.setText("Description for " + item);
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return localDataSet.length;
+        return dataList.size();
+    }
+
+    // ViewHolder class to hold references to the views in each list item
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+        public TextView titleTextView;
+        // public TextView descriptionTextView; // If you have more views in your item layout
+
+        public MyViewHolder(@NonNull View itemView) {
+            super(itemView);
+            // Initialize your views from activity_list_item_layout.xml here
+            titleTextView = itemView.findViewById(R.id.item_title);
+            // descriptionTextView = itemView.findViewById(R.id.item_description);
+        }
     }
 }
