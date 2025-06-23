@@ -1,3 +1,7 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">RecyclerView Implementation</string>
+=======
+    <string name="app_name">Intents and Navigation</string>
+>>>>>>> 4f908e9b571381521a651b3abe58c79022098326
 </resources>

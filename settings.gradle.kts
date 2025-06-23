@@ -19,6 +19,10 @@ dependencyResolutionManagement {
     }
 }
 
+<<<<<<< HEAD
 rootProject.name = "RecyclerView Implementation"
+=======
+rootProject.name = "Intents and Navigation"
+>>>>>>> 4f908e9b571381521a651b3abe58c79022098326
 include(":app")
  

@@ -3,11 +3,19 @@ plugins {
 }
 
 android {
+<<<<<<< HEAD
     namespace = "com.example.recyclerviewimplementation"
     compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.recyclerviewimplementation"
+=======
+    namespace = "com.example.intentsandnavigation"
+    compileSdk = 35
+
+    defaultConfig {
+        applicationId = "com.example.intentsandnavigation"
+>>>>>>> 4f908e9b571381521a651b3abe58c79022098326
         minSdk = 24
         targetSdk = 34
         versionCode = 1
